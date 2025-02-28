@@ -1,0 +1,47 @@
+{
+  "form": {
+    "sections": {
+      "contact": {
+        "title": "Contact information",
+        "fields": [
+          {"type": "email", "name": "email", "label": "Email address", "required": true}
+        ]
+      },
+      "shipping": {
+        "title": "Shipping information",
+        "fields": [
+          {"type": "text", "name": "firstName", "label": "First name", "required": true},
+          {"type": "text", "name": "lastName", "label": "Last name", "required": true},
+          {"type": "text", "name": "company", "label": "Company", "required": false},
+          {"type": "text", "name": "address", "label": "Address", "required": true},
+          {"type": "text", "name": "apartment", "label": "Apartment, suite, etc.", "required": false},
+          {"type": "text", "name": "city", "label": "City", "required": true},
+          {"type": "select", "name": "country", "label": "Country", "required": true, "value": "United States", "options": ["United States", "Canada", "Mexico"]},
+          {"type": "text", "name": "state", "label": "State / Province", "required": true},
+          {"type": "text", "name": "postalCode", "label": "Postal code", "required": true},
+          {"type": "tel", "name": "phone", "label": "Phone", "required": true}
+        ]
+      }
+    },
+    "delivery": {
+      "title": "Delivery method",
+      "methods": [
+        {"id": "standard", "name": "Standard", "price": 5.00, "duration": "4-10 business days", "selected": true},
+        {"id": "express", "name": "Express", "price": 16.00, "duration": "2-5 business days", "selected": false}
+      ]
+    },
+    "payment": {
+      "title": "Payment",
+      "methods": [
+        {"id": "credit-card", "name": "Credit card", "selected": true, "fields": [
+          {"type": "text", "name": "cardNumber", "label": "Card number", "required": true},
+          {"type": "text", "name": "nameOnCard", "label": "Name on card", "required": true},
+          {"type": "text", "name": "expirationDate", "label": "Expiration date (MM/YY)", "required": true},
+          {"type": "text", "name": "cvc", "label": "CVC", "required": true}
+        ]},
+        {"id": "paypal", "name": "PayPal", "selected": false},
+        {"id": "etransfer", "name": "eTransfer", "selected": false}
+      ]
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{% extends 'layout.twig' %}
+
+{% block content %}
+<h1>{{ data.form.sections.contact.title }}</h1>
+<form method="POST" action="/submit">
+  {% for field in data.form.sections.contact.fields %}
+    <label for="{{ field.name }}">{{ field.label }}</label>
+    <input type="{{ field.type }}" name="{{ field.name }}" required="{{ field.required ? 'required' : '' }}" aria-label="{{ field.label }}">
+  {% endfor %}
+
+  <h2>{{ data.form.sections.shipping.title }}</h2>
+  {% for field in data.form.sections.shipping.fields %}
+    <label for="{{ field.name }}">{{ field.label }}</label>
+    {% if field.type == 'select' %}
+      <select name="{{ field.name }}" aria-label="{{ field.label }}">
+        {% for option in field.options %}
+          <option value="{{ option }}" {% if option == field.value %}selected{% endif %}>{{ option }}</option>
+        {% endfor %}
+      </select>
+    {% else %}
+      <input type="{{ field.type }}" name="{{ field.name }}" required="{{ field.required ? 'required' : '' }}" aria-label="{{ field.label }}">
+    {% endif %}
+  {% endfor %}
+
+  <h2>{{ data.form.payment.title }}</h2>
+  {% for method in data.form.payment.methods %}
+    <label>
+      <input type="radio" name="payment" value="{{ method.id }}" {% if method.selected %}checked{% endif %}>
+      {{ method.name }}
+    </label>
+    {% if method.fields %}
+      {% for field in method.fields %}
+        <label for="{{ field.name }}">{{ field.label }}</label>
+        <input type="{{ field.type }}" name="{{ field.name }}" required="{{ field.required ? 'required' : '' }}">
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+
+  <button type="submit">Submit</button>
+</form>
+{% endblock %}
