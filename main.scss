@@ -1,0 +1,107 @@
+$primary-color: #000;
+$secondary-color: #fff;
+$button-color: #0f830f;
+$input-border-color: #ccc;
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: $primary-color;
+}
+
+header {
+    background-color: $primary-color;
+    color: $secondary-color;
+    padding: 20px;
+    text-align: center;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.checkout-form {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: $secondary-color;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.form-section {
+    margin-bottom: 30px;
+}
+
+.field {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    font-size: 1rem;
+    margin-bottom: 5px;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid $input-border-color;
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+input[type="radio"] {
+    margin-right: 10px;
+}
+
+.order-summary {
+    background-color: #f9f9f9;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+.summary-total p {
+    margin: 10px 0;
+}
+
+.submit-btn {
+    background-color: $button-color;
+    color: $secondary-color;
+    padding: 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+.submit-btn:hover {
+    background-color: darken($button-color, 10%);
+}
+
+@media (max-width: 768px) {
+    .checkout-form {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 375px) {
+    .checkout-form {
+        padding: 15px;
+    }
+
+    .submit-btn {
+        font-size: 1rem;
+        padding: 12px;
+    }
+}
